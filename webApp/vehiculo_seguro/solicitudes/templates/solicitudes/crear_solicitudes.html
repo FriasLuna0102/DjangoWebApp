@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Solicitud de Seguro</title>
+</head>
+<body>
+<h1>Crear Solicitud de Seguro de Vehículo</h1>
+<form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Esto renderiza el formulario de manera sencilla -->
+<!--    <div>-->
+<!--        <label for="matricula">Matrícula del Vehículo:</label>-->
+<!--        <input type="text" id="matricula" name="matricula" required>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label for="chasis_vin">Número de Chasis o VIN:</label>-->
+<!--        <input type="text" id="chasis_vin" name="chasis_vin" required>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label for="nombre">Nombre del Solicitante:</label>-->
+<!--        <input type="text" id="nombre" name="nombre" required>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label for="direccion">Dirección:</label>-->
+<!--        <input type="text" id="direccion" name="direccion" required>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label for="telefono">Teléfono:</label>-->
+<!--        <input type="tel" id="telefono" name="telefono" required>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label for="email">Correo Electrónico:</label>-->
+<!--        <input type="email" id="email" name="email" required>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label for="matricula_file">Copia de la Matrícula (archivo):</label>-->
+<!--        <input type="file" id="matricula_file" name="matricula_file" accept="image/*" required>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label for="licencia_file">Copia de la Licencia de Conducir (archivo):</label>-->
+<!--        <input type="file" id="licencia_file" name="licencia_file" accept="image/*" required>-->
+<!--    </div>-->
+
+    <button type="submit">Enviar Solicitud</button>
+</form>
+</body>
+</html>
