@@ -24,5 +24,6 @@ urlpatterns = [
     path('solicitudes/', include('solicitudes.urls', namespace="solicitudes")),  # Incluir URLs de solicitudes en /solicitudes/
     path('accounts/', include('django.contrib.auth.urls')),  # Añadido para autenticación
 
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
