@@ -47,7 +47,7 @@ def user_login(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('some_view')  # Cambia a tu vista principal
+            return redirect('solicitudes/crear_solicitudes.html')  # Cambia a tu vista principal
     else:
         form = AuthenticationForm()
     return render(request, 'registration/login.html', {'form': form})
