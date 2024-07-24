@@ -6,6 +6,7 @@ from .models import Solicitud
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
+from .forms import FormularioRegistroCorreo
 
 @login_required
 def crear_solicitud(request):
@@ -33,12 +34,12 @@ def listar_solicitudes(request):
 
 def registro(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = FormularioRegistroCorreo(request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')  # Redirige al inicio de sesión después del registro
     else:
-        form = UserCreationForm()
+        form = FormularioRegistroCorreo()
     return render(request, 'registration/registro.html', {'form': form})
 
 def user_login(request):
