@@ -28,9 +28,13 @@ def crear_solicitud(request):
 
 @login_required
 def listar_solicitudes(request):
-    solicitudes = Solicitud.objects.all()
+    # Obtener las solicitudes del usuario actual
+    if(request.user.is_superuser):
+        # Si el usuario es un superusuario, muestra todas las solicitudes
+        solicitudes = Solicitud.objects.all()
+    else:
+        solicitudes = Solicitud.objects.filter(usuario=request.user)
     return render(request, 'solicitudes/listar_solicitudes.html', {'solicitudes': solicitudes})
-
 
 def registro(request):
     if request.method == 'POST':
