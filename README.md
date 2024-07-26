@@ -7,3 +7,4 @@
 #### 3. Si no tienes instalado Django, puedes instalarlo dentro del entorno virtual con el gestion de librerias de python pip, como "pip install django".
 #### 4. Luego navegas dentro del directorio de "vehiculo_seguro", debe verse asi:
 	
+![image](https://github.com/user-attachments/assets/22cae9c5-b725-4097-9e39-55f51b1a00ca)
