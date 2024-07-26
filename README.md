@@ -1,4 +1,4 @@
-## Intrucciones para configurar y ejecutar
+## Intrucciones para configurar y ejecutar (No es muy vistosa en cuanto a diseño CSS por limitaciones de tiempo)
 
 ### La aplicacion esta contenida en un entorno virtual de Python con venv, por lo que para la ejecucion de la misma es necesario realizar lo siguiente:
 #### 1. Ubicarse en el directorio "webApp". 
