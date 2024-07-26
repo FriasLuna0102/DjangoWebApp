@@ -84,3 +84,9 @@ def editar_solicitud(request, pk):
     else:
         form = SolicitudUpdateForm(instance=solicitud)
     return render(request, 'solicitudes/editar_solicitudes.html', {'form': form})
+
+
+@login_required
+def ver_comentario(request, pk):
+    solicitud = get_object_or_404(Solicitud, pk=pk)
+    return render(request, 'solicitudes/ver_comentario.html', {'solicitud': solicitud})

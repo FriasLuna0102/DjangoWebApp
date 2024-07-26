@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Comentario</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<a href="{% url 'solicitudes:listar_solicitudes' %}" class="btn btn-primary">Volver a la Lista</a>
+<div class="container mt-5">
+    <h1 class="mb-4">Detalles de la Solicitud</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Solicitud ID: {{ solicitud.id }}</h5>
+
+            <!-- Mostrar comentarios del agente -->
+            <h6>Comentario del Agente:</h6>
+            {% if solicitud.comentario %}
+            <p class="card-text">{{ solicitud.comentario }}</p>
+            {% else %}
+            <p class="card-text">No hay comentarios disponibles para esta solicitud.</p>
+            {% endif %}
+
+            <!-- Mostrar imágenes enviadas por el agente -->
+            <h6>Imágenes Enviadas:</h6>
+
+            {% if solicitud.carnet_seguro %}
+            <p><strong>Carnet Seguro Enviado Por Agente::</strong></p>
+            <img src="{{ solicitud.carnet_seguro.url }}" alt="Copia de Matrícula" class="img-fluid">
+
+            {% else %}
+            <p>No se ha enviado Carnet de Seguro.</p>
+            {% endif %}
+
+            {% if solicitud.archivo_matricula %}
+            <p><strong>Copia de Matrícula:</strong></p>
+            <img src="{{ solicitud.archivo_matricula.url }}" alt="Copia de Matrícula" class="img-fluid">
+
+            {% else %}
+            <p>No se ha enviado copia de matrícula.</p>
+            {% endif %}
+
+            {% if solicitud.archivo_licencia %}
+            <p><strong>Copia de Licencia:</strong></p>
+            <img src="{{ solicitud.archivo_licencia.url }}" alt="Copia de Licencia" class="img-fluid">
+            {% else %}
+            <p>No se ha enviado copia de licencia.</p>
+            {% endif %}
+
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Enlace a Bootstrap JS y dependencias -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

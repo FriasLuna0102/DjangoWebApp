@@ -12,4 +12,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('gestionar/', views.gestionar_solicitudes, name='gestionar_solicitudes'),
     path('editar/<int:pk>/', views.editar_solicitud, name='editar_solicitud'),
+    path('ver_comentario/<int:pk>/', views.ver_comentario, name='ver_comentario'),  # Nueva URL
 ]

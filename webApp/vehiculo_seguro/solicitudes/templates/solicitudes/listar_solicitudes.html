@@ -7,7 +7,6 @@
     <!-- Enlace a Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Opcional: puedes añadir estilos personalizados aquí si es necesario */
         .table img {
             max-width: 200px;
             height: auto;
@@ -36,6 +35,7 @@
                 <th>Copia de Matrícula</th>
                 <th>Copia de Licencia</th>
                 <th>Estado</th>
+                <th>Respuesta</th> <!-- Nueva columna para comentarios -->
             </tr>
             </thead>
             <tbody>
@@ -49,18 +49,23 @@
                 <td><img src="{{ solicitud.archivo_matricula.url }}" alt="Copia de Matrícula" class="img-fluid"></td>
                 <td><img src="{{ solicitud.archivo_licencia.url }}" alt="Copia de Licencia" class="img-fluid"></td>
                 <td>{{ solicitud.estado }}</td>
+                <td>
+                    {% if solicitud.comentario %}
+                    <a href="{% url 'solicitudes:ver_comentario' solicitud.id %}" class="btn btn-info">Ver Informacion</a>
+                    {% else %}
+                    Sin respuesta
+                    {% endif %}
+                </td> <!-- Mostrar botón o texto -->
             </tr>
             {% empty %}
             <tr>
-                <td colspan="7" class="text-center">No hay solicitudes disponibles.</td>
+                <td colspan="9" class="text-center">No hay solicitudes disponibles.</td>
             </tr>
             {% endfor %}
             </tbody>
-
         </table>
 
-        <a href="/solicitudes/crear" class="btn btn-primary"> Crear Solicitud</a>
-
+        <a href="{% url 'solicitudes:crear_solicitud' %}" class="btn btn-primary">Crear Solicitud</a>
     </div>
 </div>
 
