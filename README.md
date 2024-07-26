@@ -30,6 +30,8 @@
 #### 11. Esta es la vista de la respuesta por parte del usuario:
 ![image](https://github.com/user-attachments/assets/5f3d05f9-a2f6-4318-bb74-21ede87402bc)
 
+#### 12. Para el registro:
+![image](https://github.com/user-attachments/assets/e03fdb2b-4b9c-43b6-b49c-4c2c6fb461e8)
 
 ## Estructura del codigo:
 
