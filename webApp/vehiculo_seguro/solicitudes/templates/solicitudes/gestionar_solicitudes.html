@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Solicitudes</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+
+
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">Gestionar Solicitudes</h1>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Tipo de Vehículo</th>
+            <th>Número de Identificación</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for solicitud in solicitudes %}
+        <tr>
+            <td>{{ solicitud.id }}</td>
+            <td>{{ solicitud.tipo_vehiculo }}</td>
+            <td>{{ solicitud.numero_identificacion }}</td>
+            <td>{{ solicitud.nombre_solicitante }}</td>
+            <td>{{ solicitud.email_solicitante }}</td>
+            <td>{{ solicitud.estado }}</td>
+            <td>
+                <a href="{% url 'solicitudes:editar_solicitud' pk=solicitud.id %}" class="btn btn-warning">Editar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7" class="text-center">No hay solicitudes disponibles.</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

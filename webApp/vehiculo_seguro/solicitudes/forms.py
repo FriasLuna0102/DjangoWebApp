@@ -8,6 +8,14 @@ class SolicitudForm(forms.ModelForm):
         model = Solicitud
         fields = ['tipo_vehiculo', 'numero_identificacion', 'nombre_solicitante', 'email_solicitante', 'archivo_matricula', 'archivo_licencia']
 
+class SolicitudUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Solicitud
+        fields = ['estado', 'comentario', 'numero_poliza', 'fecha_emision', 'fecha_expiracion', 'carnet_seguro']
+        widgets = {
+            'fecha_emision': forms.DateInput(attrs={'type': 'date'}),
+            'fecha_expiracion': forms.DateInput(attrs={'type': 'date'}),
+        }
 
 class FormularioRegistroCorreo(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -15,4 +23,3 @@ class FormularioRegistroCorreo(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
-

@@ -110,8 +110,7 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGIN_URL = '/login/'  # La URL del login
-LOGIN_REDIRECT_URL = '/solicitudes/crear'  # La URL a la que se redirige después del login
+LOGIN_URL = 'solicitudes:login'  # El nombre de la URL de login en el espacio de nombres 'solicitudes'
 
 # settings.py
 LOGOUT_REDIRECT_URL = '/'  # Redirige a la página principal o a cualquier otra página después del logout
@@ -121,7 +120,7 @@ LOGOUT_REDIRECT_URL = '/'  # Redirige a la página principal o a cualquier otra 
 
 STATIC_URL = "static/"
 
-LOGIN_REDIRECT_URL = '/solicitudes/crear'
+LOGIN_REDIRECT_URL = 'root_redirect'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

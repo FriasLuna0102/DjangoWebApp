@@ -21,11 +21,9 @@ from django.conf.urls.static import static
 from solicitudes.views import root_redirect
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('solicitudes/', include('solicitudes.urls', namespace="solicitudes")),  # Incluir URLs de solicitudes en /solicitudes/
-    path('accounts/', include('django.contrib.auth.urls')),  # Añadido para autenticación
-    path('', root_redirect, name='root_redirect'),
-
-
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('solicitudes/', include('solicitudes.urls', namespace='solicitudes')),  # URLs de solicitudes
+                  path('accounts/', include('django.contrib.auth.urls')),  # URLs de autenticación de Django
+                  path('', root_redirect, name='root_redirect'),  # Redirección en la raíz
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
