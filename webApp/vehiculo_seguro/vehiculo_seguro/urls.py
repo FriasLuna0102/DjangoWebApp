@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from solicitudes.views import root_redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('solicitudes/', include('solicitudes.urls', namespace="solicitudes")),  # Incluir URLs de solicitudes en /solicitudes/
     path('accounts/', include('django.contrib.auth.urls')),  # Añadido para autenticación
+    path('', root_redirect, name='root_redirect'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

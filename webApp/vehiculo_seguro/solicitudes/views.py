@@ -1,12 +1,24 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import SolicitudForm
-from django.contrib.auth.decorators import login_required
 
 from .models import Solicitud
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
 from .forms import FormularioRegistroCorreo
+
+from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+
+def root_redirect(request):
+    if request.user.is_authenticated:
+        print("Entro")
+        return redirect('solicitudes/crear')  # Redirige a la ruta deseada si está autenticado
+    else:
+        return redirect('login')  # Redirige al login si no está autenticado
+
+
+
 
 @login_required
 def crear_solicitud(request):
